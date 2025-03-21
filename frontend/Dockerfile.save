@@ -1,0 +1,21 @@
+# Usar a imagem do Node.js para construir o projeto
+FROM node:20.16.0 AS build
+# FROM node:slim-buster AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN apt-get update && apt-get install  -y build-essential python3 && \ 
+&& npm install \
+
+
+COPY . .
+
+RUN npm run build
+
+# Usar o NGINX para servir a aplicação
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
