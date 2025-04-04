@@ -33,12 +33,14 @@ Detalhes sobre a motivação do projeto, problema que resolve e usuários-alvo.
 
 - **Frontend:** React
 - **Backend:** Node.js com Express
-- **Banco de Dados:** MySQL
-- **Outras Tecnologias:** ...
+- **Banco de Dados:** MySQL com ORM Sequelize
+
 
 ## Instalação e Configuração
 
 ### Pré-requisitos
+
+obs.: o código desse repositório foi usado em um droplet linux na DigitalOcean, os comando abaixo servem para sistemas windows executados de forma local.
 
 Ter instalado na máquina:
 - (*caso Windows*) Microsoft Visual Studio Installer (Apenas os SDK's de desenvolvimento)  
@@ -100,6 +102,8 @@ Ter instalado na máquina:
    yarn sequelize db:create
    yarn sequelize db:migrate
    ```
+
+   Caso
 6. Importar o dump gerado para popular o banco de dados do MySQL, ou rodar o script do BD encontrado no diretório diretamente no MySQL (**Recomendado**).
 7. Inicie o servidor:
    ```sh
@@ -148,9 +152,11 @@ Ter instalado na máquina:
 
 ## Histórico de Desenvolvimento
 
-- **v1.0.0** - e-Texto.
-- **v1.1.0** - e-Sinais
-- **v1.2.0** - e-Sinais Web.
+- **2016** - [e-Texto](https://github.com/esinais/2016-eTexto).
+- **2017** - [e-Sinais](https://github.com/esinais/2017) 
+- **2022** - [e-Sinais Web]().
+- **2025** - [Avaliação de Usabilidade e-Sinais Web](https://github.com/esinais/2025/blob/main/tcc/2025-TccFiladelfo.pdf)
+- **2025** - [Redesign da Interface da versão 2022 com base na análise de 2025]() : em desenvolvimento...
 
 ## Uso da Aplicação
 
