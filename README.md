@@ -162,6 +162,8 @@ Ter instalado na máquina:
    npm start
    ```
 
+---
+
 ## Estrutura Base do Projeto
 
 ```bash
@@ -178,6 +180,8 @@ Ter instalado na máquina:
 ├── 📄 LICENSE
 └── 📄 README.md
 ```
+
+---
 
 ## Histórico de Desenvolvimento e Produções
 
