@@ -29,7 +29,7 @@ O e-Sinais é um software educacional que realiza a tradução de português par
 
 ## Sobre o Projeto
 
-### 🎯 Motivação  
+### Motivação  
 A inclusão de pessoas surdas no sistema educacional brasileiro ainda enfrenta desafios significativos, como a escassez de recursos pedagógicos adaptados e a falta de profissionais qualificados em Libras (Língua Brasileira de Sinais). O **e-Sinais Web** surge como uma ferramenta educacional inovadora, desenvolvida para:  
 - Promover a **educação bilíngue** (Libras e Português) conforme previsto na Lei nº 13.146/2015 (Estatuto da Pessoa com Deficiência).  
 - Facilitar a tradução de textos escritos em Português para Libras, tornando o aprendizado mais acessível e intuitivo.  
@@ -37,7 +37,7 @@ A inclusão de pessoas surdas no sistema educacional brasileiro ainda enfrenta d
 
 ---
 
-### 🔍 Problema que Resolve  
+### Problema que Resolve  
 Muitos surdos têm dificuldade em compreender textos em Português escrito, já que Libras é sua primeira língua. Além disso, educadores muitas vezes não possuem ferramentas adequadas para apoiar o ensino inclusivo. O **e-Sinais Web** resolve essas lacunas ao:  
 1. **Traduzir palavras e frases** do Português para Libras usando GIFs e recursos visuais.  
 2. **Cadastrar sinais colaborativamente**, permitindo que usuários contribuam com novos sinais e revisem traduções existentes.  
@@ -46,7 +46,7 @@ Muitos surdos têm dificuldade em compreender textos em Português escrito, já 
 
 ---
 
-### 👥 Público-Alvo  
+### Público-Alvo  
 O software é destinado a:  
 - **Comunidade surda:** Estudantes e profissionais que utilizam Libras como primeira língua e buscam recursos para compreender textos em Português.  
 - **Educadores:** Professores e intérpretes de Libras que necessitam de ferramentas pedagógicas inclusivas.  
@@ -55,7 +55,7 @@ O software é destinado a:
 
 ---
 
-### ✨ Recursos Principais  
+### Recursos Principais  
 - Tradução de palavras e frases para Libras.  
 - Cadastro colaborativo de sinais via webcam ou upload de arquivos.  
 - Sistema de *ranking* para incentivar a contribuição de usuários.  
@@ -63,7 +63,7 @@ O software é destinado a:
 
 ---
 
-## 🛠️  Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Frontend:** React
 - **Backend:** Node.js com Express
@@ -180,6 +180,7 @@ Ter instalado na máquina:
 - **2016** - [e-Texto](https://github.com/esinais/2016-eTexto).
 - **2017** - [e-Sinais](https://github.com/esinais/2017) 
 - **2022** - [e-Sinais Web]().
+- **2023** - [CBIE Artigo publicado]().
 - **2025** - [Avaliação de Usabilidade e-Sinais Web](https://github.com/esinais/2025/blob/main/tcc/2025-TccFiladelfo.pdf)
 - **2025** - [Redesign da Interface da versão 2022 com base na análise de 2025]() : em desenvolvimento...
 
@@ -187,13 +188,113 @@ Ter instalado na máquina:
 
 Explicação de como usar a aplicação (URLs, endpoints, credenciais de teste, etc.)....
 
-## Testes
 
 ## Deployment
+*obs.: O código desse repositório foi hospedado na [DigitaOceam](https://www.digitalocean.com) para testes.*
 
-Passos para realizar o deploy na DigitalOcean
+*Caso tenha um email institucional pode acessar o [GSDP](https://education.github.com/pack) para ter acesso de forma gratuita tanto para o droplet quanto para o domínio por um período de tempo.*
+
+### Pré-requisitos para Deployment
+- Droplet na Digital Ocean com Ubuntu 22.04 LTS (mínimo 2GB RAM).
+- Domínio configurado com DNS apontando para o IP do Droplet.
+- Acesso SSH ao servidor.
 
 ---
+
+### Passo a Passo para Deployment
+
+#### 1. Configuração Inicial do Droplet
+```bash
+# Conectar via SSH
+ssh root@seu_ip
+
+# Atualizar o sistema
+sudo apt update && sudo apt upgrade -y
+
+# Instalar dependências básicas
+sudo apt install -y git curl build-essential
+
+# Configurar firewall (UFW)
+sudo ufw allow OpenSSH
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw enable
+```
+
+#### 2. Instalação do Banco de Dados (MySQL)
+
+```bash
+# Instalar MySQL
+sudo apt install -y mysql-server
+
+# Configurar segurança do MySQL
+sudo mysql_secure_installation
+
+# Acessar o MySQL
+sudo mysql
+
+# Criar usuário e banco de dados (no prompt do MySQL)
+CREATE DATABASE nome_do_banco;
+CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'senha_segura';
+GRANT ALL PRIVILEGES ON nome_do_banco.* TO 'usuario'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+#### 3. Configuração do Backend
+```bash
+# Clonar repositório
+git clone https://github.com/esinais/2025.git
+cd esinais/2025/backend
+
+# Instalar dependências
+npm cache clean --force
+rm -rf node_modules
+npm install
+npm rebuild canvas
+
+# Configurar variáveis 
+nano src/config/database.js
+
+# Exemplo 
+module.exports = {
+    host: "localhost",
+    dialect: 'mysql',
+    username: 'root',
+    password: 'suaSenha',
+    database: 'esinais',
+    define: {
+        timestamp: true,
+        underscored: true,
+    },
+};
+
+# Instalar PM2 para gerenciamento de processos
+sudo npm install -g pm2
+
+# Iniciar o backend
+pm2 start npm --name "backend" -- start
+
+# Configurar para iniciar automaticamente
+pm2 startup
+pm2 save
+```
+#### Configuração do Frontend
+```bash
+cd ../frontend
+
+# Instalar dependências
+npm install
+
+# Build da aplicação (se for React/Vue)
+npm run build
+
+# Instalar servidor web (Nginx)
+sudo apt install -y nginx
+
+# Configurar Nginx (exemplo)
+sudo nano /etc/nginx/sites-available/seu-frontend
+```
 
 ## Licença
 
