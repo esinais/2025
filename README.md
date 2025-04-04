@@ -71,13 +71,12 @@ O software é destinado a:
 
 ---
 
-## ⚙️ Instalação e Configuração
+## Instalação e Configuração
 
 ### Pré-requisitos
 
 Ter instalado na máquina:
-- (*caso Windows*) Microsoft Visual Studio Installer (Apenas os SDK's de desenvolvimento)  
-  [Download](https://visualstudio.microsoft.com/pt-br/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)
+- (*caso Windows*) Microsoft Visual Studio Installer (Apenas os SDK's de desenvolvimento)  [Download](https://visualstudio.microsoft.com/pt-br/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)
 
 - Microsoft Visual C++:
   - Microsoft Visual C++ 2005
@@ -85,14 +84,11 @@ Ter instalado na máquina:
   - Microsoft Visual C++ 2010
   - Microsoft Visual C++ 2015
 
-1. **Instalar o MySQL**  
-   [Download](https://dev.mysql.com/downloads/file/?id=532678)
+1. **Instalar o MySQL**  [Download](https://dev.mysql.com/downloads/file/?id=532678)
 
-2. **Instalar o MySQL Workbench**  
-   [Download](https://dev.mysql.com/downloads/file/?id=528765)
+2. **Instalar o MySQL Workbench**  [Download](https://dev.mysql.com/downloads/file/?id=528765)
 
-3. **Instalar o Node.js v.20.16**  
-   [Download](https://nodejs.org/dist/v20.16.0/node-v20.16.0-x64.msi)
+3. **Instalar o Node.js v.20.16**  [Download](https://nodejs.org/dist/v20.16.0/node-v20.16.0-x64.msi)
 
 4. **Instalar o gerenciador de pacotes Yarn** (No CMD do Windows):
    ```sh
@@ -161,6 +157,10 @@ Ter instalado na máquina:
    ```sh
    npm start
    ```
+   ou
+   ```sh
+   npm run dev
+   ```
 
 ---
 
@@ -192,9 +192,13 @@ Ter instalado na máquina:
 - **2025** - [Avaliação de Usabilidade e-Sinais Web](https://github.com/esinais/2025/blob/main/tcc/2025-TccFiladelfo.pdf)
 - **2025** - [Redesign da Interface da versão 2022 com base na análise de 2025]() : em desenvolvimento...
 
+---
+
 ## Uso da Aplicação
 
 Explicação de como usar a aplicação (URLs, endpoints, credenciais de teste, etc.)....
+
+---
 
 
 ## Deployment
@@ -207,7 +211,7 @@ Explicação de como usar a aplicação (URLs, endpoints, credenciais de teste, 
 - Domínio configurado com DNS apontando para o IP do Droplet.
 - Acesso SSH ao servidor.
 
----
+#
 
 ### Passo a Passo para Deployment
 
@@ -370,9 +374,13 @@ export default axios.create({
 mysql -u usuario -p nome_do_banco < arquivo_dump.sql
 ```
 
+---
+
 ## Links Úteis:
 - [Guia Oficial do MySQL](https://dev.mysql.com/doc/refman/8.0/en/)
 - [Certbot Official Guide](https://certbot.eff.org/instructions)
+
+---
 
 ## Licença
 
