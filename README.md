@@ -63,6 +63,26 @@ O software é destinado a:
 
 ---
 
+## Histórico de Desenvolvimento e Produções
+- **2013** - [LIBROL: Software Tradutor de Português para LIBRAS](https://github.com/esinais/2025/blob/main/artigos/2013-CSBC-CarvalhoEtAl.pdf).
+- **2013** - [SLIDES AP - LIBROL: Software Tradutor de Português para LIBRAS](https://github.com/esinais/2025/blob/main/artigos/2013-CSBC-CarvalhoEtAl-Slides.pdf).
+- **2014** - [Avaliação da Compreensão de Textos Jornalísticos em Português, em LIBROL e em LIBRAS por Estudantes Surdos](https://github.com/esinais/2025/blob/main/artigos/2014-CSBC-SilvaEtAl.pdf).
+- **2014** - [SLIDES AP - Avaliação da Compreensão de Textos Jornalísticos em Português, em LIBROL e em LIBRAS por Estudantes Surdos](https://github.com/esinais/2025/blob/main/artigos/2014-CSBC-SilvaEtAl-Slides.pdf).
+- **2016** - [e-Texto Software](https://github.com/esinais/2016-eTexto).
+- **2016** - [e-Sinais: Software Tradutor de Português Sinalizado para Sinais em LIBRAS](https://github.com/esinais/2025/blob/main/artigos/2016-CSBC-SilvaEtAl.pdf).
+- **2016** - [SLIDES AP - e-Sinais: Software Tradutor de Português Sinalizado para Sinais em LIBRAS](https://github.com/esinais/2025/blob/main/artigos/2016-CSBC-SilvaEtAl-Slides.pdf).
+- **2017** - [e-Sinais Software](https://github.com/esinais/2017)
+- **2017** - [Avaliação do Software Educacional e-Sinais no EnsinoAprendizagem da Língua Portuguesa Escrita e da LIBRAS](https://github.com/esinais/2025/blob/main/artigos/2017-WIE-Ara%C3%BAjoEtAl.pdf).
+- **2017** - [SLIDES AP - Avaliação do Software Educacional e-Sinais no EnsinoAprendizagem da Língua Portuguesa Escrita e da LIBRAS](https://github.com/esinais/2025/blob/main/artigos/2017-WIE-AraujoEtAl-Slides.pdf). 
+- **2022** - [e-Sinais: Sistema Web Responsivo e Colaborativo no EnsinoAprendizado da Língua Portuguesa Escrita e da LIBRAS](https://github.com/esinais/2025/blob/main/tcc/2022-TccOliveira.pdf).
+- **2022** - [SLIDES AP - e-Sinais: Sistema Web Responsivo e Colaborativo no EnsinoAprendizado da Língua Portuguesa Escrita e da LIBRAS](https://github.com/esinais/2025/blob/main/tcc/2022-TccOliveira-Slides.pdf).
+- **2023** - [Uma Ferramenta Colaborativa para o Apoio do EnsinoAprendizado do Português Escrito para a Diminuição da Desigualdade Educacional dos Surdos](https://github.com/esinais/2025/blob/main/artigos/2023-WIE-OlivieraEtAl.pdf).
+- **2023** - [SLIDES AP - Uma Ferramenta Colaborativa para o Apoio do EnsinoAprendizado do Português Escrito para a Diminuição da Desigualdade Educacional dos Surdos](https://github.com/esinais/2025/blob/main/artigos/2023-WIE-OlivieraEtAl-Slides.pdf).
+- **2025** - [Avaliação de Usabilidade do Software Educacional e-Sinais Web em um Ambiente Web](https://github.com/esinais/2025/blob/main/tcc/2025-TccFiladelfo.pdf)
+- **2025** - [Redesign da Interface da versão 2022 com base na análise de 2025]() : em desenvolvimento...
+
+---
+
 ## Tecnologias Utilizadas
 
 - **Frontend:** React
@@ -180,17 +200,6 @@ Ter instalado na máquina:
 ├── 📄 LICENSE
 └── 📄 README.md
 ```
-
----
-
-## Histórico de Desenvolvimento e Produções
-
-- **2016** - [e-Texto](https://github.com/esinais/2016-eTexto).
-- **2017** - [e-Sinais](https://github.com/esinais/2017) 
-- **2022** - [e-Sinais Web]().
-- **2023** - [CBIE Artigo publicado]().
-- **2025** - [Avaliação de Usabilidade e-Sinais Web](https://github.com/esinais/2025/blob/main/tcc/2025-TccFiladelfo.pdf)
-- **2025** - [Redesign da Interface da versão 2022 com base na análise de 2025]() : em desenvolvimento...
 
 ---
 
