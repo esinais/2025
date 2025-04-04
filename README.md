@@ -91,7 +91,7 @@ Ter instalado na máquina:
 2. **Instalar o MySQL Workbench**  
    [Download](https://dev.mysql.com/downloads/file/?id=528765)
 
-3. **Instalar o Node.js**  
+3. **Instalar o Node.js v.20.16**  
    [Download](https://nodejs.org/dist/v20.16.0/node-v20.16.0-x64.msi)
 
 4. **Instalar o gerenciador de pacotes Yarn** (No CMD do Windows):
@@ -136,11 +136,15 @@ Ter instalado na máquina:
    yarn sequelize db:migrate
    ```
 
-   Caso
-6. Importar o dump gerado para popular o banco de dados do MySQL, ou rodar o script do BD encontrado no diretório diretamente no MySQL (**Recomendado**).
-7. Inicie o servidor:
+   Caso o sequelize não funcione:
+    - Importar e restaurar no banco o dump.sql (backend/Script_BD) gerado para popular o banco de dados do MySQL, ou rodar o script do BD encontrado no diretório diretamente no MySQL (**Recomendado**).
+6. Inicie o servidor:
    ```sh
    npm start
+   ```
+   ou
+      ```sh
+   npm run dev
    ```
 
 ### Frontend
@@ -256,7 +260,7 @@ npm rebuild canvas
 # Configurar variáveis 
 nano src/config/database.js
 
-# Exemplo 
+# Exemplo no local
 module.exports = {
     host: "localhost",
     dialect: 'mysql',
@@ -266,7 +270,7 @@ module.exports = {
     define: {
         timestamp: true,
         underscored: true,
-    },
+    }, 
 };
 
 # Instalar PM2 para gerenciamento de processos
@@ -279,14 +283,14 @@ pm2 start npm --name "backend" -- start
 pm2 startup
 pm2 save
 ```
-#### Configuração do Frontend
+#### 4. Configuração do Frontend
 ```bash
 cd ../frontend
 
 # Instalar dependências
 npm install
 
-# Build da aplicação (se for React/Vue)
+# Build da aplicação 
 npm run build
 
 # Instalar servidor web (Nginx)
@@ -295,6 +299,76 @@ sudo apt install -y nginx
 # Configurar Nginx (exemplo)
 sudo nano /etc/nginx/sites-available/seu-frontend
 ```
+
+```sh
+server {
+    listen 80;
+    server_name seu-dominio.com;
+
+    location / {
+        root /caminho/para/seu-repositorio/frontend/build;
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+```bash
+# Ativar configuração do Nginx
+sudo ln -s /etc/nginx/sites-available/seu-frontend /etc/nginx/sites-enabled/
+sudo systemctl restart nginx
+```
+
+#### 5. Configurar SSL com Certbot (HTTPS)
+```bash
+# Instalar Certbot
+sudo apt install -y certbot python3-certbot-nginx
+
+# Obter certificado SSL
+sudo certbot --nginx -d seu-dominio.com
+
+# Reiniciar Nginx
+sudo systemctl restart nginx
+```
+*obs.: caso não funcione com cerbot é recomendável um domínio próprio*
+
+#### 6. Configurações Adicionais para a Câmera
+Para que a câmera funcione via HTTPS:
+1. Certifique-se de que o domínio está acessível via https://.
+2. No frontend, configure a API para usar HTTPS:
+```js
+import axios from "axios";
+
+
+export default axios.create({
+    //baseURL:'http://localhost:8080'
+    //baseURL:'http://157.230.14.156:8080'	
+    baseURL:'https://web.esinais.software:8080', //URL de producao com HTTPS
+}) //
+```
+3. No navegador, permita acesso à câmera em contexto seguro (HTTPS).
+
+---
+
+## Observações Importantes
+- Firewall: Verifique se as portas 80 (HTTP), 443 (HTTPS) e 3000 (backend) estão abertas.
+- Banco de Dados - Para importar dados, use:
+```bash
+# Exemplo
+mysql -u usuario -p nome_do_banco < arquivo_dump.sql
+```
+
+## Links Úteis:
+- [Guia Oficial do MySQL](https://dev.mysql.com/doc/refman/8.0/en/)
+- [Certbot Official Guide](https://certbot.eff.org/instructions)
 
 ## Licença
 
