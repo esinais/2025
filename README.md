@@ -9,6 +9,10 @@ O e-Sinais é um software educacional que realiza a tradução de português par
 ## Índice
 
 - [Sobre o Projeto](#sobre-o-projeto)
+   - [Motivação](#-motivação)
+   - [Problema que Resolve](#-problema-que-resolve)
+   - [Público-Alvo](#-público-alvo)
+   - [Recursos Principais](#-recursos-principais)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Instalação e Configuração](#instalação-e-configuração)
   - [Pré-requisitos](#pré-requisitos)
