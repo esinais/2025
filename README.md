@@ -1,12 +1,10 @@
-# esinais v. 2025
-
 🚧 Em construção... 🚧
 
 # e-Sinais Web
 
 ![Badge de Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
-O e-Sinais é um software educacional que realiza a tradução de português para sinais em LIBRAS com o objetivo de proporcionar aos surdos uma melhor experiência no aprendizado de novas palavras.
+O e-Sinais é um software educacional que realiza a tradução de português para sinais em LIBRAS com o objetivo de proporcionar aos surdos uma melhor experiência no aprendizado de novas palavras do português escrito.
 
 ## Índice
 
@@ -27,20 +25,51 @@ O e-Sinais é um software educacional que realiza a tradução de português par
 
 ## Sobre o Projeto
 
-Detalhes sobre a motivação do projeto, problema que resolve e usuários-alvo.
+### 🎯 Motivação  
+A inclusão de pessoas surdas no sistema educacional brasileiro ainda enfrenta desafios significativos, como a escassez de recursos pedagógicos adaptados e a falta de profissionais qualificados em Libras (Língua Brasileira de Sinais). O **e-Sinais Web** surge como uma ferramenta educacional inovadora, desenvolvida para:  
+- Promover a **educação bilíngue** (Libras e Português) conforme previsto na Lei nº 13.146/2015 (Estatuto da Pessoa com Deficiência).  
+- Facilitar a tradução de textos escritos em Português para Libras, tornando o aprendizado mais acessível e intuitivo.  
+- Estimular a colaboração entre usuários na construção de um banco de dados de sinais, fortalecendo a comunidade surda e ouvintes interessados.  
 
-## Tecnologias Utilizadas
+---
+
+### 🔍 Problema que Resolve  
+Muitos surdos têm dificuldade em compreender textos em Português escrito, já que Libras é sua primeira língua. Além disso, educadores muitas vezes não possuem ferramentas adequadas para apoiar o ensino inclusivo. O **e-Sinais Web** resolve essas lacunas ao:  
+1. **Traduzir palavras e frases** do Português para Libras usando GIFs e recursos visuais.  
+2. **Cadastrar sinais colaborativamente**, permitindo que usuários contribuam com novos sinais e revisem traduções existentes.  
+3. **Tratar homônimos e sinônimos**, garantindo traduções mais precisas e contextualizadas.  
+4. Oferecer uma **interface responsiva**, acessível em diferentes dispositivos (computadores, tablets, celulares).  
+
+---
+
+### 👥 Público-Alvo  
+O software é destinado a:  
+- **Comunidade surda:** Estudantes e profissionais que utilizam Libras como primeira língua e buscam recursos para compreender textos em Português.  
+- **Educadores:** Professores e intérpretes de Libras que necessitam de ferramentas pedagógicas inclusivas.  
+- **Ouvintes interessados:** Pessoas que desejam aprender Libras ou apoiar a inclusão de surdos.  
+- **Instituições de ensino:** Escolas e universidades que buscam implementar práticas educacionais acessíveis.  
+
+---
+
+### ✨ Recursos Principais  
+- Tradução de palavras e frases para Libras.  
+- Cadastro colaborativo de sinais via webcam ou upload de arquivos.  
+- Sistema de *ranking* para incentivar a contribuição de usuários.  
+- Interface intuitiva e adaptável a diferentes dispositivos.  
+
+---
+
+## 🛠️  Tecnologias Utilizadas
 
 - **Frontend:** React
 - **Backend:** Node.js com Express
 - **Banco de Dados:** MySQL com ORM Sequelize
 
+---
 
-## Instalação e Configuração
+## ⚙️ Instalação e Configuração
 
 ### Pré-requisitos
-
-obs.: o código desse repositório foi usado em um droplet linux na DigitalOcean, os comando abaixo servem para sistemas windows executados de forma local.
 
 Ter instalado na máquina:
 - (*caso Windows*) Microsoft Visual Studio Installer (Apenas os SDK's de desenvolvimento)  
@@ -125,32 +154,24 @@ Ter instalado na máquina:
    npm start
    ```
 
-## Estrutura do Projeto
+## Estrutura Base do Projeto
 
 ```bash
 📂 esinais2025
 ├── 📂 backend
-│   ├── src
-│   ├── config
-│   ├── routes
-│   ├── controllers
-│   ├── models
-│   └── tests
+│   ├── Prints_Conf
+│   ├── Script_BD
+│   └── src
 ├── 📂 frontend
-│   ├── src
-│   ├── components
-│   ├── pages
-│   ├── services
-│   ├── assets
-│   └── tests
-├── 📂 database
-│   ├── migrations
-│   ├── seeds
-│   └── scripts
+│   ├── public
+│   └── src
+├── 📂 material_complementar
+├── 📂 tcc
+├── 📄 LICENSE
 └── 📄 README.md
 ```
 
-## Histórico de Desenvolvimento
+## Histórico de Desenvolvimento e Produções
 
 - **2016** - [e-Texto](https://github.com/esinais/2016-eTexto).
 - **2017** - [e-Sinais](https://github.com/esinais/2017) 
@@ -162,15 +183,16 @@ Ter instalado na máquina:
 
 Explicação de como usar a aplicação (URLs, endpoints, credenciais de teste, etc.)....
 
+## Testes
+
 ## Deployment
 
 Passos para realizar o deploy na DigitalOcean
 
-## Contribuição
-
-Se deseja contribuir, siga as diretrizes do repositório.
+---
 
 ## Licença
 
 [Apache-2.0 license ](LICENSE)
 
+*Desenvolvido com pela comunidade do IFBA - Campus Vitória da Conquista para promover a inclusão e a acessibilidade.* 
