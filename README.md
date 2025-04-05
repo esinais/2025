@@ -1,5 +1,3 @@
-🚧 Em construção... 🚧
-
 # e-Sinais Web
 
 ![Badge de Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
@@ -13,6 +11,7 @@ O e-Sinais é um software educacional que realiza a tradução de português par
    - [Problema que Resolve](#-problema-que-resolve)
    - [Público-Alvo](#-público-alvo)
    - [Recursos Principais](#-recursos-principais)
+- [Histórico de Desenvolvimento e Produções](#histórico-de-desenvolvimento-e-produções)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Instalação e Configuração](#instalação-e-configuração)
   - [Pré-requisitos](#pré-requisitos)
@@ -20,9 +19,6 @@ O e-Sinais é um software educacional que realiza a tradução de português par
   - [Backend](#backend)
   - [Frontend](#frontend)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Histórico de Desenvolvimento](#histórico-de-desenvolvimento)
-- [Uso da Aplicação](#uso-da-aplicação)
-- [Testes](#testes)
 - [Deployment](#deployment)
 - [Contribuição](#contribuição)
 - [Licença](#licença)
@@ -203,13 +199,6 @@ Ter instalado na máquina:
 
 ---
 
-## Uso da Aplicação
-
-Explicação de como usar a aplicação (URLs, endpoints, credenciais de teste, etc.)....
-
----
-
-
 ## Deployment
 *obs.: O código desse repositório foi hospedado na [DigitaOceam](https://www.digitalocean.com) para testes.*
 
@@ -225,8 +214,10 @@ Explicação de como usar a aplicação (URLs, endpoints, credenciais de teste, 
 ### Passo a Passo para Deployment
 
 #### 1. Configuração Inicial do Droplet
+Documentação da digitalocean para criar um droplet: [Droplets](https://docs.digitalocean.com/products/droplets/). Após criação siga os passos abaixo.
+
 ```bash
-# Conectar via SSH
+# Conectar via SSH em terminal local, após esse comando a senha cadastrada no droplet da digitalocean vai ser solicitada
 ssh root@seu_ip
 
 # Atualizar o sistema
@@ -234,16 +225,9 @@ sudo apt update && sudo apt upgrade -y
 
 # Instalar dependências básicas
 sudo apt install -y git curl build-essential
-
-# Configurar firewall (UFW)
-sudo ufw allow OpenSSH
-sudo ufw allow 80
-sudo ufw allow 443
-sudo ufw enable
 ```
 
 #### 2. Instalação do Banco de Dados (MySQL)
-
 ```bash
 # Instalar MySQL
 sudo apt install -y mysql-server
@@ -307,55 +291,66 @@ cd ../frontend
 # Instalar dependências
 npm install
 
-# Build da aplicação 
-npm run build
+# Iniciar o frontend
+pm2 start npm --name "backend" -- start
 
-# Instalar servidor web (Nginx)
-sudo apt install -y nginx
-
-# Configurar Nginx (exemplo)
-sudo nano /etc/nginx/sites-available/seu-frontend
+# Configurar para iniciar automaticamente
+pm2 startup
+pm2 save
 ```
 
+#### 5. Instalar e configura o Apache
+```bash
+# Instale o servidor web
+sudo apt install apache2 -y
+
+#erifique o status do Apache
+sudo systemctl status apache2
+
+#Ative o firewall (UFW) e libere tráfego HTTP/HTTPS
+sudo ufw allow 'Apache Full'
+sudo ufw enable
+```
+#### 6. Configurar o Domínio no Apache
+```bash
+# Crie um diretório para seu site
+sudo mkdir -p /var/www/seu_dominio/html
+
+# Configure as permissões
+o chown -R $USER:$USER /var/www/seu_dominio/html
+sudo chmod -R 755 /var/www/seu_dominio
+
+# Crie um arquivo de configuração do site
+sudo nano /etc/apache2/sites-available/seu_dominio.conf
+```
+Cole o seguinte conteúdo (substitua seu_dominio pelo seu domínio):
 ```sh
-server {
-    listen 80;
-    server_name seu-dominio.com;
-
-    location / {
-        root /caminho/para/seu-repositorio/frontend/build;
-        try_files $uri $uri/ /index.html;
-    }
-
-    location /api {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-    }
-}
+<VirtualHost *:80>
+    ServerAdmin admin@seu_dominio
+    ServerName seu_dominio
+    ServerAlias www.seu_dominio
+    DocumentRoot /var/www/seu_dominio/html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
 ```
 
 ```bash
-# Ativar configuração do Nginx
-sudo ln -s /etc/nginx/sites-available/seu-frontend /etc/nginx/sites-enabled/
-sudo systemctl restart nginx
+# Ative o site e recarregue o Apache
+sudo a2ensite seu_dominio.conf
+sudo systemctl reload apache2
 ```
 
-#### 5. Configurar SSL com Certbot (HTTPS)
+#### 5. Configurar SSL (HTTPS)
 ```bash
-# Instalar Certbot
-sudo apt install -y certbot python3-certbot-nginx
+# Instale o Certbot para HTTPS gratuito (Let's Encrypt)
+sudo apt install certbot python3-certbot-apache -y
+sudo certbot --apache -d seu_dominio -d www.seu_dominio
 
-# Obter certificado SSL
-sudo certbot --nginx -d seu-dominio.com
-
-# Reiniciar Nginx
-sudo systemctl restart nginx
+# Siga as intruções no terminal para validar o certificado
+# Se tudo ocorrer bem acesse no navegador https://seu_dominio
 ```
-*obs.: caso não funcione com cerbot é recomendável um domínio próprio*
+*obs.: caso não funcione com cerbot é recomendável um certificado próprio*
 
 #### 6. Configurações Adicionais para a Câmera
 Para que a câmera funcione via HTTPS:
