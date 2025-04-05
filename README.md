@@ -341,7 +341,7 @@ sudo a2ensite seu_dominio.conf
 sudo systemctl reload apache2
 ```
 
-#### 5. Configurar SSL (HTTPS)
+#### 7. Configurar SSL (HTTPS)
 ```bash
 # Instale o Certbot para HTTPS gratuito (Let's Encrypt)
 sudo apt install certbot python3-certbot-apache -y
@@ -352,7 +352,7 @@ sudo certbot --apache -d seu_dominio -d www.seu_dominio
 ```
 *obs.: caso não funcione com cerbot é recomendável um certificado próprio*
 
-#### 6. Configurações Adicionais para a Câmera
+#### 8. Configurações Adicionais para a Câmera
 Para que a câmera funcione via HTTPS:
 1. Certifique-se de que o domínio está acessível via https://.
 2. No frontend, configure a API para usar HTTPS:
