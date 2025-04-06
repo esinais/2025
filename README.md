@@ -292,19 +292,19 @@ cd ../frontend
 npm install
 
 # Iniciar o frontend
-pm2 start npm --name "backend" -- start
+pm2 start npm --name "frontend" -- start
 
 # Configurar para iniciar automaticamente
 pm2 startup
 pm2 save
 ```
 
-#### 5. Instalar e configura o Apache
+#### 5. Instalar e configurar o Apache
 ```bash
 # Instale o servidor web
 sudo apt install apache2 -y
 
-#erifique o status do Apache
+# Verifique o status do Apache
 sudo systemctl status apache2
 
 #Ative o firewall (UFW) e libere tráfego HTTP/HTTPS
@@ -350,7 +350,7 @@ sudo certbot --apache -d seu_dominio -d www.seu_dominio
 # Siga as intruções no terminal para validar o certificado
 # Se tudo ocorrer bem acesse no navegador https://seu_dominio
 ```
-*obs.: caso não funcione com cerbot é recomendável um certificado próprio*
+*obs.: caso não funcione com certbot é recomendável um certificado próprio*
 
 #### 8. Configurações Adicionais para a Câmera
 Para que a câmera funcione via HTTPS:
@@ -366,7 +366,7 @@ export default axios.create({
     baseURL:'https://web.esinais.software:8080', //URL de producao com HTTPS
 }) //
 ```
-3. No navegador, permita acesso à câmera em contexto seguro (HTTPS).
+3. No navegador, acesse seu domínio (ex: web.esinais.software) e permita acesso à câmera em contexto seguro (HTTPS).
 
 ---
 
