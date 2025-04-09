@@ -90,9 +90,10 @@ O software é destinado a:
 ## Instalação e Configuração
 
 ### Pré-requisitos
+**executando localmente em uma máquina com  Windows*
 
 Ter instalado na máquina:
-- (*caso Windows*) Microsoft Visual Studio Installer (Apenas os SDK's de desenvolvimento)  [Download](https://visualstudio.microsoft.com/pt-br/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)
+- Microsoft Visual Studio Installer (Apenas os SDK's de desenvolvimento)  [Download](https://visualstudio.microsoft.com/pt-br/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)
 
 - Microsoft Visual C++:
   - Microsoft Visual C++ 2005
@@ -149,7 +150,12 @@ Ter instalado na máquina:
    ```
 
    Caso o sequelize não funcione:
-    - Importar e restaurar no banco o dump.sql (backend/Script_BD) gerado para popular o banco de dados do MySQL, ou rodar o script do BD encontrado no diretório diretamente no MySQL (**Recomendado**).
+    - Importar e restaurar no banco o dump.sql (backend/Script_BD) gerado para popular o banco de dados do MySQL, ou rodar o script do BD encontrado no diretório diretamente no MySQL.
+    - (**Recomendado**) Ou crie o banco e digite o comando
+     ```mysql
+     mysql -u root -p esinais < /home/usuario/dump.sql
+     ```
+     o arquivo dump.sql está dentro da pasta Script_BD do banckend.
 6. Inicie o servidor:
    ```sh
    npm start
@@ -158,6 +164,19 @@ Ter instalado na máquina:
       ```sh
    npm run dev
    ```
+*obs.: pela forma como o códito está estruturado a depender de como sua API está é preciso ir nas seguintes pastas e seus arquivos e mudar de acordo o seu uso.*
+
+**Pastas e arquivos:**
+```bash
+frontend > Components
+		> Edit-sinais
+		> Edit-usuarios
+		> Enable-sinais
+		> Search-sinais
+```
+![]()
+![]()
+![]()
 
 ### Frontend
 
