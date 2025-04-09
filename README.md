@@ -174,9 +174,9 @@ frontend > Components
 		> Enable-sinais
 		> Search-sinais
 ```
-![]()
-![]()
-![]()
+![](https://github.com/esinais/2025/blob/main/outros/arquivos_para_modificar.PNG)
+![](https://github.com/esinais/2025/blob/main/outros/api.PNG)
+![](https://github.com/esinais/2025/blob/main/outros/exIndexJS.PNG)
 
 ### Frontend
 
