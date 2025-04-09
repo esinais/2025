@@ -176,6 +176,7 @@ frontend > Components
 ```
 
 Os arquivos index.js dentro dessas pastas podem precisar ser alterados
+
 ![](https://github.com/esinais/2025/blob/main/outros/arquivos_para_modificar.PNG)
 
 Caso haja alteração no arquivo **configApi.js**
