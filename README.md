@@ -174,8 +174,13 @@ frontend > Components
 		> Enable-sinais
 		> Search-sinais
 ```
+Os arquivos index.js dentro dessas pastas podem precisar ser alterados
 ![](https://github.com/esinais/2025/blob/main/outros/arquivos_para_modificar.PNG)
+
+Caso haja alteração no arquivo **configApi.js**
 ![](https://github.com/esinais/2025/blob/main/outros/api.PNG)
+
+Exemplo de um trecho no código
 ![](https://github.com/esinais/2025/blob/main/outros/exIndexJS.PNG)
 
 ### Frontend
