@@ -116,6 +116,8 @@ Ter instalado na máquina:
    - Baixar este pacote: [ffmpeg-git-full.7z](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z)
    - Criar uma pasta `C:\ffmpeg` e descompactar o arquivo nesta pasta.
    - Certifique-se de que os arquivos estão diretamente na pasta `ffmpeg` (não deve haver subpastas adicionais).
+   - Exemplo ffmpeg -> ffmpeg -> arquivos o correto é apenas ffmpeg -> arquivos
+
 
 6. **Configurar o FFMPEG**
    - Adicionar o caminho até a pasta `bin` do FFMPEG nas variáveis de ambiente do Windows (tanto do usuário quanto do sistema).
@@ -151,7 +153,7 @@ Ter instalado na máquina:
 
    Caso o sequelize não funcione:
     - Importar e restaurar no banco o dump.sql (backend/Script_BD) gerado para popular o banco de dados do MySQL, ou rodar o script do BD encontrado no diretório diretamente no MySQL.
-    - (**Recomendado**) Ou crie o banco e digite o comando
+    - (**Recomendado**) Ou crie o banco e digite o comando para popular o banco
      ```mysql
      mysql -u root -p esinais < /home/usuario/dump.sql
      ```
@@ -164,7 +166,7 @@ Ter instalado na máquina:
       ```sh
    npm run dev
    ```
-*obs.: pela forma como o códito está estruturado a depender de como sua API está é preciso ir nas seguintes pastas e seus arquivos e mudar de acordo o seu uso.*
+*obs.: pela forma como o código está estruturado a depender de como sua API está é preciso ir nas seguintes pastas e seus arquivos index.js e mudar de acordo o seu uso.*
 
 **Pastas e arquivos:**
 ```bash
@@ -199,11 +201,7 @@ Exemplo de um trecho no código
    ```sh
    npm start
    ```
-   ou
-   ```sh
-   npm run dev
-   ```
-
+ 
 ---
 
 ## Estrutura Base do Projeto
@@ -264,12 +262,15 @@ sudo mysql_secure_installation
 # Acessar o MySQL
 sudo mysql
 
-# Criar usuário e banco de dados (no prompt do MySQL)
-CREATE DATABASE nome_do_banco;
+# Criar usuário e o banco de dados (no prompt do MySQL)
+CREATE DATABASE esinais;
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'senha_segura';
-GRANT ALL PRIVILEGES ON nome_do_banco.* TO 'usuario'@'localhost';
+GRANT ALL PRIVILEGES ON esinais.* TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
+
+# Popule o banco
+mysql -u root -p esinais < /home/usuario/dump.sql
 ```
 
 #### 3. Configuração do Backend
@@ -349,7 +350,7 @@ sudo chmod -R 755 /var/www/seu_dominio
 # Crie um arquivo de configuração do site
 sudo nano /etc/apache2/sites-available/seu_dominio.conf
 ```
-Cole o seguinte conteúdo (substitua seu_dominio pelo seu domínio):
+Cole o seguinte conteúdo (substitua 'seu_dominio' pelo seu domínio):
 ```sh
 <VirtualHost *:80>
     ServerAdmin admin@seu_dominio
@@ -398,11 +399,6 @@ export default axios.create({
 
 ## Observações Importantes
 - Firewall: Verifique se as portas 80 (HTTP), 443 (HTTPS) e 3000 (backend) estão abertas.
-- Banco de Dados - Para importar dados, use:
-```bash
-# Exemplo
-mysql -u usuario -p nome_do_banco < arquivo_dump.sql
-```
 
 ---
 
