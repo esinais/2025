@@ -75,7 +75,7 @@ O software é destinado a:
 - **2023** - [Uma Ferramenta Colaborativa para o Apoio do EnsinoAprendizado do Português Escrito para a Diminuição da Desigualdade Educacional dos Surdos](https://github.com/esinais/2025/blob/main/artigos/2023-WIE-OlivieraEtAl.pdf).
 - **2023** - [SLIDES AP - Uma Ferramenta Colaborativa para o Apoio do EnsinoAprendizado do Português Escrito para a Diminuição da Desigualdade Educacional dos Surdos](https://github.com/esinais/2025/blob/main/artigos/2023-WIE-OlivieraEtAl-Slides.pdf).
 - **2025** - [Avaliação de Usabilidade do Software Educacional e-Sinais Web em um Ambiente Web](https://github.com/esinais/2025/blob/main/tcc/2025-TccFiladelfo.pdf)
-- **2025** - Redesign da Interface da versão 2022 com base na análise de 2025 : em desenvolvimento...
+- **2025** - Redesign da Interface da versão 2022 com base na análise de 2025 : ==em desenvolvimento...==
 
 ---
 
